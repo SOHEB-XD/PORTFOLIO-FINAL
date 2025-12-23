@@ -1,16 +1,44 @@
-# React + Vite
+🪐 Digital Voyager PortfolioA high-performance, immersive personal portfolio website built with React and Three.js. featuring a "Liquid Chrome" aesthetic, procedural 3D background, and smooth motion interactions.✨ FeaturesImmersive 3D Background: A procedurally generated "Mechanical Atom" scene using Three.js (no external 3D models required).Liquid Chrome Theme: A sleek, monochrome aesthetic with high-gloss metallic elements.Scroll Animations: Elements fade and slide into view using a custom Intersection Observer hook.Custom Cursor: A lag-free, magnetic cursor that blends with the background.Responsive Design: Fully adaptive layout for mobile, tablet, and desktop using Tailwind CSS.Performance: Optimized rendering loop and lightweight DOM structure.🛠️ Tech StackCore: React 18Styling: Tailwind CSS3D Graphics: Three.jsBuild Tool: Vite🚀 Getting StartedFollow these steps to run the project locally on your machine.PrerequisitesNode.js (v16 or higher) installed.InstallationCreate a new Vite project:npm create vite@latest my-portfolio -- --template react
+cd my-portfolio
+Install Dependencies:npm install three
+npm install -D tailwindcss postcss autoprefixer
+Initialize Tailwind CSS:npx tailwindcss init -p
+Configure Tailwind:Update tailwind.config.js to look like this:/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+Setup CSS:Replace the contents of src/index.css with:@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+body {
+    background-color: #000;
+    overflow-x: hidden;
+}
+Add the Application Code:Delete the default content in src/App.jsx.Paste the code from the generated Portfolio file into src/App.jsx.Run Development Server:npm run dev
+Open the local link (usually http://localhost:5173) in your browser.📂 Project StructureIf you decide to split the single file (recommended for larger projects), organize it like this:src/
+├── components/
+│   ├── layout/
+│   │   ├── Navbar.jsx
+│   │   └── Footer.jsx
+│   ├── sections/
+│   │   ├── Hero.jsx
+│   │   ├── Skills.jsx
+│   │   ├── Projects.jsx
+│   │   └── Education.jsx
+│   ├── three/
+│   │   └── CrystalScene.jsx  <-- The 3D Code
+│   └── ui/
+│       ├── CustomCursor.jsx
+│       ├── ScrollReveal.jsx
+│       └── Icons.jsx
+├── App.jsx
+└── main.jsx
+🎨 CustomizationColors: Modified in Tailwind classes (e.g., text-cyan-500, bg-black).3D Object: Modify the CrystalScene component. You can change geometry (Torus, Sphere, Icosahedron) or materials (MeshPhysicalMaterial) to change the look of the floating object.Data: Update the arrays in Projects, Skills, and Education components to reflect your own data.📄 LicenseThis project is open source and available under the MIT License.
